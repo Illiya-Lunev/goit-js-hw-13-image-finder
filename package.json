@@ -1,0 +1,38 @@
+{
+  "name": "goit-js-hw-12-countries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html ",
+    "build": "parcel build src/index.html --public-url /goit-js-hw-12-countries/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Illiya-Lunev/goit-js-hw-12-countries.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Illiya-Lunev/goit-js-hw-12-countries/issues"
+  },
+  "homepage": "https://Illiya-Lunev.github.io/goit-js-hw-12-countries",
+  "dependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/desktop": "^5.2.0",
+    "debounce": "^1.2.1",
+    "gh-pages": "^3.2.3",
+    "handlebars": "^4.7.7",
+    "joi": "^17.4.1",
+    "lodash.debounce": "^4.0.8",
+    "parcel-plugin-handlebars": "^0.4.4"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "pnotify": "^5.2.0"
+  }
+}
