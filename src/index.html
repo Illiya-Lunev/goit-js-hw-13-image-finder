@@ -14,6 +14,7 @@
   <body>
     <form class="search-form" id="search-form">
       <input
+        class="input"
         type="text"
         name="query"
         autocomplete="off"
@@ -21,11 +22,12 @@
       />
       <button class="btn" type="submit">Search</button>
     </form>
-
+    <button class="btn_load" type="button" data-action="load-more">
+      Load more
+    </button>
     <ul class="gallery js-gallery">
       <!-- Список <li> с карточками изображений -->
     </ul>
-    <button type="button" data-action="load-more">Load more</button>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
