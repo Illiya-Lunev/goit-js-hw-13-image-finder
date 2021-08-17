@@ -97,6 +97,11 @@ img {
 .photo-card {
   outline: 1px solid #188ce8;
   box-shadow: 5px 5px 15px 5px #188ce8;
+  cursor: pointer;
+}
+
+.photo-card:hover {
+  box-shadow: 10px 10px 20px 10px #02335a;
 }
 
 .photo-card img {
