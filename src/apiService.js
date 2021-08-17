@@ -7,11 +7,12 @@ export default class ApiService {
     const BASE_URL = 'https://pixabay.com/api/';
     const API_KEY = '22951340-683a641f2fde08e18261bbe3d';
 
-    fetch(
+    return fetch(
       `${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.querySearch}&page=${this.page}&per_page=12&key=${API_KEY}`,
     ).then(res =>
       res.json().then(data => {
         this.page += 1;
+        return data.hits;
       }),
     );
   }

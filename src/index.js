@@ -14,11 +14,20 @@ ref.btnLoadMore.addEventListener('click', onLoadMore);
 function onSearch(e) {
   e.preventDefault();
 
+  clearGallery();
   apiService.query = e.currentTarget.elements.query.value;
   apiService.resetPage();
-  apiService.fetchArticles();
+  apiService.fetchArticles().then(onGalleryMarkup);
 }
 
 function onLoadMore() {
-  apiService.fetchArticles();
+  apiService.fetchArticles().then(onGalleryMarkup);
+}
+
+function onGalleryMarkup(hits) {
+  ref.markupGallery.insertAdjacentHTML('beforeend', templates(hits));
+}
+
+function clearGallery() {
+  ref.markupGallery.innerHTML = '';
 }
