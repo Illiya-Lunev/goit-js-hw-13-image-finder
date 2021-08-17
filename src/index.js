@@ -34,10 +34,10 @@ function onSearch(e) {
 function onLoadMore() {
   apiService.fetchArticles().then(onGalleryMarkup);
 
-  //   ref.formSearc.scrollIntoView({
-  //     behavior: 'smooth',
-  //     block: 'end',
-  //   });
+  ref.formSearch.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end',
+  });
 
   if (apiService.query) {
     onNotice();
