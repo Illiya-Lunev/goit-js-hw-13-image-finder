@@ -10,9 +10,9 @@ export default class ApiService {
     return fetch(
       `${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.querySearch}&page=${this.page}&per_page=12&key=${API_KEY}`,
     ).then(res =>
-      res.json().then(data => {
+      res.json().then(({ hits }) => {
         this.page += 1;
-        return data.hits;
+        return hits;
       }),
     );
   }
