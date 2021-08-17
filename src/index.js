@@ -1,5 +1,6 @@
 import ApiService from '../src/apiService';
 import templates from '../src/templates/temlates.hbs';
+import LoadMoreBtn from '../src/load-more-btn';
 
 import { notice, defaults, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
@@ -15,24 +16,30 @@ defaults.width = '300px';
 const ref = {
   formSearch: document.querySelector('.js-search-form'),
   markupGallery: document.querySelector('.js-gallery'),
-  btnLoadMore: document.querySelector('[data-action="load-more"]'),
 };
+
+const loadBtnmore = new LoadMoreBtn({
+  selector: '[data-action="load-more"]',
+  hidden: true,
+});
 const apiService = new ApiService();
 
 ref.formSearch.addEventListener('submit', onSearch);
-ref.btnLoadMore.addEventListener('click', onLoadMore);
+loadBtnmore.refs.button.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
   e.preventDefault();
 
   clearGallery();
   apiService.query = e.currentTarget.elements.query.value;
+  loadBtnmore.show();
   apiService.resetPage();
   apiService.fetchArticles().then(onGalleryMarkup);
 }
-
 function onLoadMore() {
+  loadBtnmore.disable();
   apiService.fetchArticles().then(onGalleryMarkup);
+  loadBtnmore.enable();
 
   scrollAfterLoad();
 
@@ -57,15 +64,11 @@ function onNotice() {
 }
 
 function scrollAfterLoad() {
-  try {
-    setTimeout(() => {
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        left: 0,
-        behavior: 'smooth',
-      });
-    }, 1000);
-  } catch (error) {
-    console.log(error);
-  }
+  setTimeout(() => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+      block: 'end',
+    });
+  }, 500);
 }

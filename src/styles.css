@@ -58,6 +58,10 @@ img {
 .btn:hover {
   background: #188ce8;
 }
+
+.btn_load.is-hidden {
+  display: none;
+}
 .btn_load {
   display: block;
   margin-left: auto;
