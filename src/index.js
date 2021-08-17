@@ -34,10 +34,7 @@ function onSearch(e) {
 function onLoadMore() {
   apiService.fetchArticles().then(onGalleryMarkup);
 
-  ref.formSearch.scrollIntoView({
-    behavior: 'smooth',
-    block: 'end',
-  });
+  scrollAfterLoad();
 
   if (apiService.query) {
     onNotice();
@@ -57,4 +54,18 @@ function onNotice() {
     title: `Loading... Please wait!`,
     delay: 500,
   });
+}
+
+function scrollAfterLoad() {
+  try {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }, 1000);
+  } catch (error) {
+    console.log(error);
+  }
 }
