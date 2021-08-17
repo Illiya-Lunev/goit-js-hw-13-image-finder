@@ -115,6 +115,11 @@ img {
 .stats-item:last-child {
   margin-right: 0px;
 }
+.stats-text {
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(145, 17, 34, 0.555);
+}
 .material-icons {
   display: flex;
   align-items: center;
