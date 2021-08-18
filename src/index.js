@@ -38,7 +38,7 @@ function onSearch(e) {
   clearGallery();
   apiService.query = e.currentTarget.elements.query.value;
 
-  if (apiService.query === '') {
+  if (apiService.query.trim() === '') {
     error({
       title: 'You did not enter anything',
       text: 'Please,try again.',
