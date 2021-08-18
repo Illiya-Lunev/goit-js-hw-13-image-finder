@@ -65,6 +65,12 @@ function onLoadMore() {
     onGalleryMarkup(hits);
   });
   loadBtnmore.enable();
+
+  // const element = loadBtnmore;
+  // element.scrollIntoView({
+  //   behavior: 'smooth',
+  //   block: 'end',
+  // });
   scrollAfterLoad();
 
   if (apiService.query) {
