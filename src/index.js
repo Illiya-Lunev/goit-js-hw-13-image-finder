@@ -53,16 +53,7 @@ function onSearch(e) {
 }
 function onLoadMore() {
   loadBtnmore.disable();
-  apiService.fetchArticles().then(hits => {
-    if (hits.length === 0) {
-      error({
-        title: 'No more images for your request ',
-        text: 'Sorry!',
-      });
-      return;
-    }
-    onGalleryMarkup(hits);
-  });
+  apiService.fetchArticles().then(onGalleryMarkup);
   loadBtnmore.enable();
   scrollAfterLoad();
 
@@ -96,7 +87,7 @@ function scrollAfterLoad() {
   }, 500);
 }
 
-// Функция добавлению модалки
+// Функция для добавления модалки на img
 function openImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
