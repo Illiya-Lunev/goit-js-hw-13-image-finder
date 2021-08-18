@@ -42,6 +42,7 @@ function onSearch(e) {
     error({
       title: 'You did not enter anything',
       text: 'Please,try again.',
+      delay: 500,
     });
 
     return;
