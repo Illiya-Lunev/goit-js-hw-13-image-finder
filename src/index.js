@@ -1,10 +1,11 @@
 import ApiService from '../src/apiService';
 import templates from '../src/templates/temlates.hbs';
 import LoadMoreBtn from '../src/load-more-btn';
+// Плагин модалки
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
 
-import { notice, defaults, defaultModules } from '@pnotify/core';
+import { notice, defaults, defaultModules, error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/desktop/dist/PNotifyDesktop';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -42,7 +43,16 @@ function onSearch(e) {
 }
 function onLoadMore() {
   loadBtnmore.disable();
-  apiService.fetchArticles().then(onGalleryMarkup);
+  apiService.fetchArticles().then(hits => {
+    if (hits.length === 0) {
+      error({
+        title: 'There is no picture with this name',
+        text: 'Please,try again.',
+      });
+      return;
+    }
+    onGalleryMarkup(hits);
+  });
   loadBtnmore.enable();
   scrollAfterLoad();
 
@@ -76,6 +86,7 @@ function scrollAfterLoad() {
   }, 500);
 }
 
+// Функция добавлению модалки
 function openImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
