@@ -53,7 +53,16 @@ function onSearch(e) {
 }
 function onLoadMore() {
   loadBtnmore.disable();
-  apiService.fetchArticles().then(onGalleryMarkup);
+  apiService.fetchArticles().then(hits => {
+    if (hits.length === 0) {
+      error({
+        title: 'No more images for your request ',
+        text: 'Sorry!',
+      });
+      return;
+    }
+    onGalleryMarkup(hits);
+  });
   loadBtnmore.enable();
   scrollAfterLoad();
 
