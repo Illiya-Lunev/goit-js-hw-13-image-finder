@@ -71,6 +71,7 @@ function onLoadMore() {
   //   behavior: 'smooth',
   //   block: 'end',
   // });
+
   scrollAfterLoad();
 
   if (apiService.query) {
