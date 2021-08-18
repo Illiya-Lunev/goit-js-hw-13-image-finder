@@ -37,6 +37,16 @@ function onSearch(e) {
 
   clearGallery();
   apiService.query = e.currentTarget.elements.query.value;
+
+  if (apiService.query === '') {
+    error({
+      title: 'You did not enter anything',
+      text: 'Please,try again.',
+    });
+
+    return;
+  }
+
   loadBtnmore.show();
   apiService.resetPage();
   apiService.fetchArticles().then(onGalleryMarkup);
