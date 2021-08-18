@@ -46,8 +46,8 @@ function onLoadMore() {
   apiService.fetchArticles().then(hits => {
     if (hits.length === 0) {
       error({
-        title: 'There is no picture with this name',
-        text: 'Please,try again.',
+        title: 'No more images for your request ',
+        text: 'Sorry!',
       });
       return;
     }
