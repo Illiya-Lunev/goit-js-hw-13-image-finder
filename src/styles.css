@@ -115,10 +115,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  margin-left: 5px;
-}
-.stats:last-child {
-  margin-left: 0px;
 }
 
 .stats-item {
@@ -131,7 +127,8 @@ img {
 }
 .stats-text {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
+  margin-left: 5px;
   color: rgba(145, 17, 34, 0.555);
 }
 .material-icons {
