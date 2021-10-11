@@ -131,7 +131,8 @@ img {
 }
 .material-icons {
   display: flex;
+
   align-items: center;
-  margin-right: 10px;
+  margin-right: 5px;
   color: #2196f3;
 }
