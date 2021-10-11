@@ -115,12 +115,17 @@ img {
   display: flex;
   justify-content: center;
   align-items: baseline;
+  margin-left: 5px;
+}
+.stats:last-child {
+  margin-left: 0px;
 }
 
 .stats-item {
   display: flex;
-  margin-right: 10px;
+  margin-right: 5px;
 }
+
 .stats-item:last-child {
   margin-right: 0px;
 }
@@ -130,9 +135,15 @@ img {
   color: rgba(145, 17, 34, 0.555);
 }
 .material-icons {
-  display: flex;
-
-  align-items: center;
-  margin-right: 5px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
   color: #2196f3;
 }
